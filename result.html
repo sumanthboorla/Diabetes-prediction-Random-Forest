@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Diabetes Predictor</title>
+		<style>
+			@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+			body { 
+				width: 100%;
+				height:100%;
+				font-family: 'Open Sans', sans-serif;
+				background: url('static/img2.jpg');
+				color: #fff;
+				font-size: 12px;
+				text-align:center;
+				letter-spacing:1.2px;
+				background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104,128,138,.4) 10%,rgba(138,114,76,0) 40%), -ms-linear-gradient(top,  rgba(57,173,219,.25) 0%,rgba(42,60,87,.4) 100%), -ms-linear-gradient(-45deg,  #670d10 0%,#092756 100%);	
+			}
+
+			.results{
+				margin-top:50px;
+			}
+
+			.gif1{
+				height: 100px;
+				width: 100px;
+
+			}
+
+			.gif{
+				height: 100px;
+				width: 100px;
+			}
+			.pk{
+				position:center;
+				display: block;
+				width: 250px;
+				height: 50px;
+				line-height: 46px;
+				text-decoration: none;
+				text-align: center;
+				border-radius: 50px;
+				border: 3px solid seagreen;
+				color: seagreen;
+				font-size: 20px;
+				font-family: arial;
+				position: relative;
+				overflow: hidden;
+				background: transparent;
+				text-transform: uppercase;
+				transition: all .35s;
+				position:center;
+			  }
+			  
+			  .pk:before,
+			  .pk:after{
+				position: absolute;
+				content: "";
+				width: 100%;
+				height: 100%;
+				top: -100%;
+				left: 0;
+				background: yellow;
+				z-index: -1;
+				transition: all .35s;
+			  }
+			  
+			  .pk:before{
+				opacity: .5;
+			  }
+			  
+			  .pk:after{
+				transition-delay: .2s;
+			  }
+			  
+			  .pk:hover{
+				color: #fff;
+			  }
+			  
+			  .pk:hover:before,
+			  .pk:hover:after{
+				top: 0;
+			  }
+	
+		</style>
+		
+	</head>
+    <body>
+		<div class='login-button'>
+			<button class='pk'  ><a  href="/logout" data-toggle="modal" data-target="#logoutModal">logout</a></button>
+		</div>
+
+
+		<div class="results">
+			{% if prediction==1 %}
+				<h1>Prediction: <span class='danger'>Opps! You have a greater risk of having diabetes consult ur doctor.</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='diabetes.webp') }}" alt="Diabetes Image">
+				
+			{% elif prediction==0 %}
+				<h1>Prediction: <span class='safe'>Wow ! You have a lower risk of diabetes.</span></h1>
+				<img class="gif1" src="{{ url_for('static', filename='no-diabetes.webp') }}" alt="Not Diabetes Image">
+			{% endif %}
+
+			<h2 id="report">Report</h2>
+			<img src="./static/report.jpg" height="50%" width="50%"/>
+		</div>
+
+	</body>
+</html>

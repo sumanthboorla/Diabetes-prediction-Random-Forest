@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+   
+	{% if data %}
+	<h3>{{data}}</h3>
+	{% else %}
+
+	<!-- <a href="/logout">Logout</a> <br> <br> -->
+	<div class='login-button'>
+		<button class='pk'  ><a  href="/logout" data-toggle="modal" data-target="#logoutModal">logout</a></button>
+	</div>
+	
+	
+  <div class="register-button">
+	<button class='pk' ><a href="/diabetes" data-toggle="modal" data-target="#logoutModal">diabetes</a></button>
+  </div>
+
+	
+	{% endif %}
+
+{% else %}
+
+<!-- <a href="/login">Login</a> 
+<a href="/register">Register</a> -->
+<!-- <div class="wrapper1">
+	<div class="row" style="margin-top: 50px">
+		<div class="col-sm-6">
+			<ul>
+				<li class="col-sm-6"><div class='pk'><a href="/login" >Login</a><div></li>
+				</ul>
+				<br>
+				<ul>
+				<li class="col-sm-12"><div class='pk'><a href="/register">Register</a></div></li>
+			</ul>
+		</div>
+	</div>
+</div> -->
+<div class="login-button">
+	<button class="pk"><a href="/login" >Login </a> </button>
+</div>
+<div class="register-button">
+	<buttton class="pk"><a href="/register" >Register</a></buttton>
+</div>
+
+{% endif %}
+{% endblock %}

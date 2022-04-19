@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div align=center>
+<form class="login" action="/login" method="POST">
+  <div class="login__field">
+   <!-- <i class="login__icon fas fa-user"></i>-->
+    <input type="text" class="login__input" name="username" placeholder="Username" required>
+  </div>
+  <div class="login__field">
+    <!--<i class="login__icon fas fa-lock"></i>-->
+    <input type="password" class="login__input" name="password" placeholder="Password" required>
+  </div>
+  <button class="login__submit"   type="submit">
+    <span class="button__text">
+      Log In 
+    </span> 
+    <!-- <i class="button__icon fas fa-chevron-right"></i>>-->
+  </button>				
+</form>
+<div>
+
+{% endif %}
+{% endblock %}
