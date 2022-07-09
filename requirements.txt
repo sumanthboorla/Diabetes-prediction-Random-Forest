@@ -1,2 +1,7 @@
 Flask
 Flask-SQLAlchemy
+seaborn
+matplotlib
+pandas
+numpy
+scikit_learn
